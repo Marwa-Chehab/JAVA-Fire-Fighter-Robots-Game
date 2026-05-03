@@ -1,0 +1,83 @@
+Ensimag 2A POO - TP 2018/19
+============================
+
+
+
+Compilation et Execution:
+=========================
+
+1) Choix de la carte : dans le Makefile, décommenter la variable CARTE associée à la carte voulue
+
+2) Choix du chef pompier : le projet est initialisé sur le chef élementaire
+Pour en changer : 
+Aux lignes 33 et 65 du fichier src/io/simulatio/Simulateur.java, remplacer le nom du chef actuel par
+ - "ChefPompierAvance" pour choisir le chef avec une stratégie plus avancée
+ - "ChefPompierElementaire" pour choisir le chef avec une stratégie plus basique
+
+
+2) COMPILER la simulation dans la racine du projet avec la commande: make
+      NB : La plupart des tests est inutilisable suite à l'avancement et au développement du projet
+
+3) EXECUTER la simulation dans la racine du projet avec la commande: make exeStart
+
+4) Nettoyer le répertoir avec la commande : make clean
+
+
+
+Utilisation du programme:
+=========================
+Après avoir lancé l'execution (cf paragraphe précédent), il est possible de diriger la simulation:
+ - le bouton Suivant avance la simulation du nombre de dates précisé dans l'encadré "Nb de pas simulé entre 2 affichages"
+ - Le bouton Lecture fait défiler la simulation de dates en dates, avec un pas précisé dans l'encadré "Nb de pas simulé entre 2 affichages"
+ - Le bouton Début relance la simulation depuis la date 0 (ne marche pas avec le chef avancé)
+ - le bouton Quitter ferme la simulation
+
+
+Informations supplémentaires:
+=============================
+- L'écart de temps entre deux dates consécutives est de 1s
+- On suppose les tailles des cases en m, les vitesses des robots ont donc été converties en m/s
+- On arrondi le temps de déplacement entre deux cases à l'entier inférieur
+- Les robots roues ne pouvant aller dans la forêt et tous les incendies étant sur des cases forêts, les robots roues sont inutiles et ne bougent pas
+
+
+
+
+Légende de la carte :
+====================
+- carré vert : case forêt
+- carré rose : case habitation
+- carré blanc : case terrain libre
+- carré gris : case rocher
+- carré bleu : case eau
+- rond rouge : incendie numéro n°i, l'intensité est affichée au dessus
+- rond noir : robot Xi, où X = D,P,C,R pour le type de robot et i son numéro
+
+- le réservoir de chaque robot est affiché à gauche, en litre
+- la date courante est visible à tout instant en haut à gauche
+
+
+
+Structure du projet:
+====================
+
+- src: contient les classes:
+      - classes : contient les classes des objets de base des fichiers carte .map
+      - evenements : contient les classes d'évènements et celles relatives aux évènements
+      - simulation : contient les classes relatives aux données de la simulation et à l'interface graphique
+
+- cartes: quelques exemples de fichiers de donnees
+
+- lib/gui.jar: archive Java contenant les classes de l'interface graphique. Voir un exemple d'utilisation dans TestInvader.java
+
+- doc: la documentation (API) des classes de l'interface graphique contenues dans gui.jar. Point d'entrée: index.html
+
+- bin : après compilation, contient les .class nécessaires à l'execution
+
+- Makefile : pour la compilation et l'execution
+
+
+
+
+
+
